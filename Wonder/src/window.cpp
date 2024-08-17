@@ -1,0 +1,71 @@
+#include "window.h"
+#include <string>
+#include <iostream>
+Window::Window()
+{
+	m_Window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT,SCR_TITTLE, 0, 0);
+	if (!m_Window)
+	{
+		throw std::string("Failed to Create Window");
+	}
+	glfwMakeContextCurrent(m_Window);
+}
+
+void Window::Init()
+{
+	if (!glfwInit())
+	{
+		throw std::string("Failed to Initialize Window");
+	}
+	//GLFWWindowHint
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	
+	Window::Get();
+}
+
+void Window::Clear()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void Window::enableVSync()
+{
+	glfwSwapInterval(1);
+}
+
+bool Window::isRunning()
+{
+	return !glfwWindowShouldClose(m_Window);
+}
+
+GLFWwindow* Window::getWindow() const
+{
+	return m_Window;
+}
+
+void Window::clearColor() const
+{
+	glClearColor(m_Red,m_Green,m_Blue,1.0f);
+}
+
+void Window::setClearColor(const float& r, const float& g, const float& b)
+{
+	m_Red = r;
+	m_Green = g;
+	m_Blue = b;
+
+}
+
+
+void Window::swapBuffer()
+{
+	glfwSwapBuffers(m_Window);
+	glfwPollEvents();
+}
+
+Window::~Window()
+{
+	glfwDestroyWindow(m_Window);
+}
