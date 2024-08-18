@@ -107,7 +107,8 @@ void Game::render()
     objectVao.bind();
     objectShader->use();
 	glm::mat4 projection = glm::perspective(glm::radians(Camera::GetInstance()->getFov()),float(SCR_WIDTH/SCR_HEIGHT),0.1f,100.0f);
-	objectShader->setUniformMat4("u_Model", objectTransform.getModelMatrix());
+	objectShader->setUniformMat4("u_Model", TransformSystem::GetModelMatrix(objectTransform));
+    TransformSystem::Log(objectTransform);
 	objectShader->setUniformMat4("u_View", Camera::GetInstance()->getViewMatrix());
 	objectShader->setUniformMat4("u_Projection", projection);
     objectShader->setUniformVec3("ObjectColor", glm::vec3(1.0f, 0.5f, 0.31f));
@@ -119,7 +120,7 @@ void Game::render()
     
     lightVao.bind();
     lightShader->use();
-	glm::mat4 PVM = projection * Camera::GetInstance()->getViewMatrix() * lightTransform.getModelMatrix();
+	glm::mat4 PVM = projection * Camera::GetInstance()->getViewMatrix() * TransformSystem::GetModelMatrix(lightTransform);
 	lightShader->setUniformMat4("u_PVM", PVM);
 	glDrawArrays(GL_TRIANGLES, 0,36);
 }

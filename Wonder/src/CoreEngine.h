@@ -1,6 +1,6 @@
 #pragma once
 //#include "Window.h"
-#define SHOW_FPS 1
+#define SHOW_FPS 0
 
 #include "../Game/Game.h"
 #include "Application.h"

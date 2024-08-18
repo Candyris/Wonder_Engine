@@ -10,8 +10,8 @@ public:
 	void update() override;
 	void render() override;
 private:
-	Transform objectTransform;
-	Transform lightTransform;
+	TransformComponent objectTransform;
+	TransformComponent lightTransform;
 	VAO objectVao;
 	VAO lightVao;
 	Shader* objectShader;

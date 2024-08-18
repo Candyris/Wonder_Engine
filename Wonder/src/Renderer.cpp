@@ -22,11 +22,11 @@ void Renderer::Init()
 	glEnable(GL_DEPTH_TEST); // Enable 3d Drawing 
 }
 
-void Renderer::renderVAO(VAO& vao, Shader& shader, Transform& transform,const GLuint& count)
+void Renderer::renderVAO(VAO& vao, Shader& shader, TransformComponent& transform,const GLuint& count)
 {
 	vao.bind();
 	glm::mat4 projection = glm::perspective(glm::radians(Camera::GetInstance()->getFov()), float(SCR_WIDTH / SCR_HEIGHT), 0.1f, 100.0f);
-	glm::mat4 PVM = projection * Camera::GetInstance()->getViewMatrix() * transform.getModelMatrix();
+	glm::mat4 PVM = projection * Camera::GetInstance()->getViewMatrix() * TransformSystem::GetModelMatrix(transform);
 	shader.setUniformMat4("u_PVM", PVM);
 	glDrawArrays(GL_TRIANGLES, 0, count);
 }
