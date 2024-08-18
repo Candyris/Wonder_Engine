@@ -5,6 +5,7 @@
 #include "shader.h"
 #include "Texture.h"
 #include "Transform.h"
+#include "Color.h"
 #include <memory>
 class Shape
 {
@@ -19,12 +20,17 @@ public:
 	void setTransform(const TransformComponent& transform);
 	void setTexture(std::unique_ptr<Texture> texture);
 	void setShader(std::unique_ptr<Shader> shader);
+	void setColor(const ColorComponent& color);
+	void setColor(const float& r, const float& g, const float& b );
 
 	TransformComponent getTransform() const;
 	Texture* getTexture() const;
 	Shader* getShader() const;
+	ColorComponent getColor() const;
+
 protected:
 	std::unique_ptr<Shader> m_Shader;
 	TransformComponent m_Transform;
 	std::unique_ptr<Texture> m_Texture;
+	ColorComponent m_Color;
 };

@@ -1,6 +1,7 @@
 #pragma once
 #include "../src/Application.h"
 #include "../src/coreEngine.h"
+#include "../src/Cube.h"
 
 class Game : public IApplication
 {
@@ -10,11 +11,6 @@ public:
 	void update() override;
 	void render() override;
 private:
-	TransformComponent objectTransform;
-	TransformComponent lightTransform;
-	VAO objectVao;
-	VAO lightVao;
-	Shader* objectShader;
-	Shader* lightShader;
-	unsigned int VBO;
+	TransformComponent Box;
+	Cube cube;
 };

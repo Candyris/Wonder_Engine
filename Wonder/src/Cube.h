@@ -11,4 +11,7 @@ public:
 	void render() override;
 private:
 	VAO m_Vao;
+	glm::mat4 m_Model;
+	glm::mat4 m_View;
+	glm::mat4 m_Projection;
 };
