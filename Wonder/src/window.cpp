@@ -9,6 +9,7 @@ Window::Window()
 		throw std::string("Failed to Create Window");
 	}
 	glfwMakeContextCurrent(m_Window);
+	m_Color = {0.f,0.f,0.f};
 }
 
 void Window::Init()
@@ -47,15 +48,12 @@ GLFWwindow* Window::getWindow() const
 
 void Window::clearColor() const
 {
-	glClearColor(m_Red,m_Green,m_Blue,1.0f);
+	glClearColor(m_Color.r, m_Color.g,m_Color.b,1.0f);
 }
 
 void Window::setClearColor(const float& r, const float& g, const float& b)
 {
-	m_Red = r;
-	m_Green = g;
-	m_Blue = b;
-
+	m_Color = { r,g,b };
 }
 
 

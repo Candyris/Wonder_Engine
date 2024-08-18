@@ -2,6 +2,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <memory>
+#include "Color.h"
 const int SCR_WIDTH = 800;
 const int SCR_HEIGHT = 600;
 inline const char* SCR_TITTLE = "WONDER ENGINE";
@@ -25,8 +26,6 @@ public:
 	}
 private:
 	Window();
-	float m_Red;
-	float m_Green;
-	float m_Blue;
+	ColorComponent m_Color;
 	GLFWwindow* m_Window;
 };
