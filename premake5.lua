@@ -63,9 +63,9 @@ outputdir = "%{cfg.buildcfg}/%{cfg.system}-%{cfg.architure}"
    optimize "On"
    
    -- Post-build commands to copy the Shader folder
-   postbuildcommands 
-   {
-      "{COPY} Shader ../%{cfg.targetdir}/Shader"
-   }
+   -- postbuildcommands 
+   -- {
+   --    "{COPY} Shader ../%{cfg.targetdir}/Shader"
+   -- }
    
    
