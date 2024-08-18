@@ -6,7 +6,7 @@ class Texture
 {
 public:
 	unsigned int ID;
-	Texture(const char* Path, int format); // format  = {GL_RGB / GL_RGBA}
+	Texture(const char* Path); // format  = {GL_RGB / GL_RGBA}
 	void activate(unsigned int TextureUnit);
 	void bind() ;
 };

@@ -1,6 +1,6 @@
 #include "Texture.h"
 #include <iostream>
-Texture::Texture(const char* Path, int format)
+Texture::Texture(const char* Path)
 {
 	glGenTextures(1,&ID);
 	glBindTexture(GL_TEXTURE_2D, ID);
@@ -12,7 +12,29 @@ Texture::Texture(const char* Path, int format)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-	if (!data)
+	GLenum format = 0;
+	if (data)
+	{
+		
+		if(format == 1)
+		{
+			format = GL_RED;
+
+		}
+		if(format == 2)
+		{
+			format = GL_RG;
+		}
+		if (format == 3)
+		{
+			format = GL_RGB;
+		}
+		if (format == 4)
+		{
+			format = GL_RGBA;
+		}
+	}
+	else
 	{
 		std::cout<<std::string("[TEXTURE] : TEXTURE::LOAD : Failed to Load Image\n[PATH] : " + std::string(Path))<<std::endl;
 	}
