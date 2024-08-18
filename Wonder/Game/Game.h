@@ -1,7 +1,8 @@
 #pragma once
 #include "../src/Application.h"
 #include "../src/coreEngine.h"
-#include "../src/Cube.h"
+#include "../src/Shape/Cube.h"
+#include "../src/Shape/Pyramid.h"
 
 class Game : public IApplication
 {
@@ -13,4 +14,6 @@ public:
 private:
 	TransformComponent Box;
 	Cube cube;
+	Pyramid cone;
+
 };
