@@ -1,7 +1,7 @@
 #pragma once
 #pragma once
 #include "Shape.h"
-#include "../VAO.h"
+#include "core/VAO.h"
 
 class Pyramid : public Shape
 {

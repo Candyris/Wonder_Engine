@@ -1,6 +1,6 @@
 #pragma once
 #include "Shape.h"
-#include "../VAO.h"
+#include "core/VAO.h"
 
 class Cube : public Shape
 {

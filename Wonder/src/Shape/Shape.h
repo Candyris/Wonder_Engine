@@ -2,10 +2,10 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "../shader.h"
-#include "../Texture.h"
-#include "../Transform.h"
-#include "../Color.h"
+#include "Shaders/Shader.h"
+#include "Textures/Texture.h"
+#include "Components/Transform.h"
+#include "Components/Color.h"
 #include <memory>
 class Shape
 {

@@ -1,8 +1,8 @@
 #pragma once
-#include "../src/Application.h"
-#include "../src/coreEngine.h"
-#include "../src/Shape/Cube.h"
-#include "../src/Shape/Pyramid.h"
+#include "core/Application.h"
+#include "core/Engine.h"
+#include "Shape/Cube.h"
+#include "Shape/Pyramid.h"
 
 class Game : public IApplication
 {

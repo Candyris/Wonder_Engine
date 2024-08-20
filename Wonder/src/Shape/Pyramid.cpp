@@ -3,8 +3,8 @@
 
 
 #include "Cube.h"
-#include "../Camera.h"
-#include "../window.h"
+#include "core/Camera.h"
+#include "core/window.h"
 #include <iostream>
 
 Pyramid::Pyramid(TransformComponent& transform)

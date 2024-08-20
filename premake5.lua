@@ -17,7 +17,8 @@ outputdir = "%{cfg.buildcfg}/%{cfg.system}-%{cfg.architure}"
    {
       "%{prj.name}/vendor",
       "%{prj.name}/vendor/glm",
-      "dependencies/include" 
+      "dependencies/include",
+      "%{prj.name}/src"
    }
    files 
    {
