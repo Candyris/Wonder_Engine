@@ -22,7 +22,7 @@ void Game::update()
 	std::uniform_real_distribution<float> urd(0.0f, 1.0f);
 	 
 		TransformComponent prop = cone.getTransform();
-		prop.rotateAngle = glfwGetTime() * 40;
+		prop.rotateAngle = static_cast<float>(glfwGetTime() * 40.0f);
 		prop.rotationDir = Vector3D::Up;
 
 		cone.setTransform(prop);
