@@ -6,7 +6,7 @@
 #include "Application.h"
 #include <glm/glm.hpp>
 #include "ECS/ECS.h"
-
+#include <Editor/Editor.h>
 class Engine
 {
 public:
@@ -29,6 +29,8 @@ private:
 
 private:
 	// Editor 
+	Editor m_Editor;
+
 	void enableCamera();
 	void UpdateDeltaTime();
 

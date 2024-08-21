@@ -23,7 +23,7 @@ void Game::update()
 	 
 		TransformComponent prop = cone.getTransform();
 		prop.rotateAngle = static_cast<float>(glfwGetTime() * 40.0f);
-		prop.rotationDir = Vector3D::Up;
+		prop.rotationDir = glm::vec3(1.0f, 0.5f, 0.3f);
 
 		cone.setTransform(prop);
 		if (static_cast<int>(glfwGetTime()) % 2 == 0)

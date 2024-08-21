@@ -52,6 +52,9 @@ void Engine::mainLoop()
 		update();
 		render();
 		Window::Get()->swapBuffer();
+		m_Editor.input();  // Handle editor-specific input
+		m_Editor.update(); // Update editor logic
+		m_Editor.render(); // Render editor UI
 		#if SHOW_FPS 
 			std::cout << "[FPS] -> (" << 1.0f / Time::Get()->DeltaTime <<')' << std::endl;
 		#endif
@@ -78,9 +81,11 @@ void Engine::Init()
 	Window::Init();
 	Window::enableVSync();
 	Renderer::Init();
+	m_Editor.init();
 	Game* game = new Game;
 	app = game;
 	app->Init();
+
 }
 
 void Engine::input()
@@ -101,19 +106,26 @@ void Engine::input()
 	{
 		glfwSetWindowShouldClose(window, true);
 	}
+
+	if (glfwGetKey(window, GLFW_KEY_F1) == GLFW_RELEASE)
+	{
+		m_Editor.ToggleActive();
+	}
 	// When Editor Mode Don't using the App input
 }
 
 void Engine::render()
 {
 	app->render();
+	m_Editor.render();
 }
 
 void Engine::update()
 {
 	Time::Get()->updateTime();
 	ecs.update();
-	if (!CameraState)	app->update();
+	if (!CameraState)
+		app->update();
 }
 
 void Engine::callback()
@@ -147,6 +159,9 @@ void Engine::enableCamera()
 			glfwSetCursorPosCallback(Window::Get()->getWindow(), nullptr);
 			glfwSetScrollCallback(Window::Get()->getWindow(), nullptr);
 
+
+
+			
 		}
 	}
 }
